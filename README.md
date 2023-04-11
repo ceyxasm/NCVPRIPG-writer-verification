@@ -6,7 +6,8 @@ The Writer Verification challenge is a competition that involves identifying whe
 ## Dataset
 * Training set contains 1352 folders of images. All the images in one folder are written by the same person. 
 * Validation set contains a set of images from 92 different writers. The val.csv file contains name of image pairs and the corresponding labels. A label of 1 indicates that the images are written by the same writer and a label of 0 indicates that the images are written by different writers.
-* Test set contains images from 360 writers. In test.csv you are given name of image pairs. For output, you need to predict the label for given pair of images and submit the csv file in the format by editing the test.csv file.
+* Test set contains images from 360 writers. In test.csv you are given name of image pairs. For output, you need to predict the label for given pair of images and submit the csv file in the format by editing the test.csv file. <br>
+
 ![format](./assets/format.png)
 
 ## Evaluation
