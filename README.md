@@ -1,6 +1,6 @@
 # Summer Challenge on Writer Verification
 
-1. <a href="#introduction">Introdction</a>
+1. <a href="#introduction">Introduction</a>
 2. <a href="#dataset">Dataset</a>
 3. <a href="#starter-code">Starter Code</a>
 4. <a href="#evaluation">Evaluation</a>
