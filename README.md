@@ -33,5 +33,23 @@ F1 = 2 * (precision * recall) / (precision + recall)
 AUC = integral(TPR(FPR^-1)(f)df) where FPR is false positive rate and TPR is true positive rate
 ```
 
+Install dependencies:
+```BASH
+$ pip install numpy pandas scikit-learn
+```
+
+To evaluate your predictions, please store results in the same format as the data (in CSV format) in `./example_data/` directory.
+
+To evaluate run the following:
+```BASH
+$ python evaluate.py --labels ./example_data/val.csv --predictions ./example_data/predictions.csv
+```
+
+Output:
+```
+Accuracy: 0.33, F1-score: 0.40, AUC-ROC: 0.33
+```
+
+
 --- 
 For more details, please refer to our site [here](https://ceyxasm.github.io/WVSite/#top)
