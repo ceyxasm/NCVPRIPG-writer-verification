@@ -55,7 +55,7 @@ Accuracy: 0.33, F1-score: 0.40, AUC-ROC: 0.33
 
 
 --- 
-For more details, please refer to our site [here](https://ceyxasm.github.io/WVSite/#top)
+For more details, please refer to our site [here](https://vl2g.github.io/challenges/wv2023/)
 
 ---
 ## References
