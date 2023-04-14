@@ -4,6 +4,9 @@
 2. <a href="#dataset">Dataset</a>
 3. <a href="#starter-code">Starter Code</a>
 4. <a href="#evaluation">Evaluation</a>
+5. <a href="#references">References</a>
+
+
 
  
 ---
@@ -20,7 +23,7 @@ The Writer Verification challenge is a competition that involves identifying whe
 ---
 
 ## Starter Code
-You can find the starter code [here]()
+You can find the evaluation code [here](./evaluate.py)
 
 ---
 
@@ -53,3 +56,10 @@ Accuracy: 0.33, F1-score: 0.40, AUC-ROC: 0.33
 
 --- 
 For more details, please refer to our site [here](https://ceyxasm.github.io/WVSite/#top)
+
+---
+## References
+For our baseline model, followong references were used and you are advised too look at the same.
+
+* [SigNet: Convolutional Siamese Network for Writer Independent Offline Signature Verification](https://arxiv.org/pdf/1707.02131v2.pdf)
+* [Attention based Writer Independent Verification](https://arxiv.org/pdf/2009.04532v3.pdf)
