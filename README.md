@@ -22,10 +22,6 @@ The Writer Verification challenge is a competition that involves identifying whe
 
 ---
 
-## Starter Code
-You can find the evaluation code [here](./evaluate.py)
-
----
 
 ## Evaluation
 Your submissions will be evaluated against the ground truth using F1 score and AUC.
@@ -36,23 +32,28 @@ F1 = 2 * (precision * recall) / (precision + recall)
 AUC = integral(TPR(FPR^-1)(f)df) where FPR is false positive rate and TPR is true positive rate
 ```
 
-Install dependencies:
-```BASH
-$ pip install numpy pandas scikit-learn
-```
 
-To evaluate your predictions, please store results in the same format as the data (in CSV format) in `./example_data/` directory.
+### Submission Format
+You are required to submit a .csv file with following rules in mind.
+* Name your csv file as `<team_name>_<submission_number.csv>`. So for team named VL2G making their first submission, file would be named `VL2G_1.csv`
+* The csv file must have 4 columns `img1_name`, `img2_name`, `label` and `proba`. You may generate your submission file by creating a copy of `val.csv` that is provided to you so that ordering of the pairs is same as in original `val.csv`
+![WVSC_1](./assets/WVSC_1.png)
 
-To evaluate run the following:
-```BASH
-$ python evaluate.py --labels ./example_data/val.csv --predictions ./example_data/predictions.csv
-```
 
-Output:
-```
-Accuracy: 0.33, F1-score: 0.40, AUC-ROC: 0.33
-```
+Test you file by running [evaluate.py](./evaluate.py) script
 
+```
+python3 evaluate --label <path/to/ground/truth/csv/file> --pred <path/to/prediction/file>
+```
+![eval](./assets/eval.gif)
+
+
+Leader-board will be generated using [leader_board.py](./leader_board.py)
+
+```
+python3 leader_board.py --gt <path/to/ground/truth/csv/file> --path <path/to/submission/folder>
+```
+![leaderboard](./assets/leader_board.gif)
 
 --- 
 For more details, please refer to our site [here](https://vl2g.github.io/challenges/wv2023/)
