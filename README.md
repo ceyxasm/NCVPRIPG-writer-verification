@@ -2,9 +2,8 @@
 
 1. <a href="#introduction">Introduction</a>
 2. <a href="#dataset">Dataset</a>
-3. <a href="#starter-code">Starter Code</a>
-4. <a href="#evaluation">Evaluation</a>
-5. <a href="#references">References</a>
+3. <a href="#evaluation">Evaluation</a>
+4. <a href="#references">References</a>
 
 
 
