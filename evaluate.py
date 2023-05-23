@@ -1,43 +1,42 @@
-'''
-Python file to evaluate results
-'''
-
 import argparse
 import numpy as np
 import pandas as pd
-from sklearn.metrics import accuracy_score, f1_score, roc_auc_score
+from sklearn.metrics import f1_score, roc_auc_score
+from sklearn.metrics import roc_curve, auc
+import matplotlib.pyplot as plt
 
-def evaluate_results(predictions, labels):
-    accuracy = accuracy_score(labels, predictions)
-    f1 = f1_score(labels, predictions)
-    auc_roc = roc_auc_score(labels, predictions)
 
-    return accuracy, f1, auc_roc
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Process a CSV file.')
-    parser.add_argument('--predictions', type=str, help='Path to the predictions CSV file')
-    parser.add_argument('--labels', type=str, help='Path to the labels CSV file')
-    args = parser.parse_args()
+def plot_auc(y_true, y_proba):
+    fpr, tpr, _ = roc_curve(y_true, y_proba)
+    plt.figure()
+    plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % auc)
+    plt.plot([0, 1], [0, 1], 'k--')
+    plt.xlim([0, 1.05])
+    plt.ylim([0, 1.05])
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title('ROC Curve')
+    plt.legend(loc="lower right")
+    plt.savefig('roc_curve.png')
     
-    # get file paths of predictions/labels
-    predictions_filepath = args.predictions
-    labels_filepath = args.labels
-    
-    # read files of predictions/labels
-    predictions = pd.read_csv(predictions_filepath)
-    labels = pd.read_csv(labels_filepath)
-    
-    # obtain list of predictions/labels
-    predictions = predictions.label.to_list()
-    labels = labels.label.to_list()
 
-    # convert to numpy arrays
-    predictions = np.array(predictions)
-    labels = np.array(labels)
-    
-    # get results
-    accuracy, f1, auc_roc = evaluate_results(predictions, labels)
-    
-    # display results
-    print(f"Accuracy: {accuracy:.2f}, F1-score: {f1:.2f}, AUC-ROC: {auc_roc:.2f}")
+parser = argparse.ArgumentParser()
+parser.add_argument('--pred', type=str, required=True, help='path to prediction file') #path to the prediction.csv
+parser.add_argument('--label', type=str, required=True, help='path to ground truth label file') #path to ground truth file
+
+args = parser.parse_args()
+
+Y_true = pd.read_csv(args.label)
+Y_pred = pd.read_csv(args.pred)
+
+y_true = Y_true['label'].values
+y_pred = Y_pred['label'].values
+y_proba = Y_pred['proba'].values
+
+f1_score = f1_score(y_true, y_pred)
+auc = roc_auc_score(y_true, y_proba)
+plot_auc(y_true, y_proba)
+
+print('F1 score: {:.4f}'.format(f1_score))
+print('AUC: {:.4f}'.format(auc))
