@@ -21,9 +21,9 @@ leader_board = pd.DataFrame(columns=['team_name', 'sub_#', 'f1_score', 'auc'])
 predictions_files = os.listdir(args.path)
 for file in predictions_files:
     path = os.path.join(args.path, file)
-    file_name = file.split('.')[0]
-    team_name = file_name.split('_')[0]
-    sub_no = file_name.split('_')[1]
+    file_name = file[:-4]
+    team_name = file_name[:-3]
+    sub_no = file_name[-2:]
 
     y_pred = pd.read_csv(path)['label'].values
     y_proba = pd.read_csv(path)['proba'].values
