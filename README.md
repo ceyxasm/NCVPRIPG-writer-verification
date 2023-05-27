@@ -34,7 +34,7 @@ AUC = integral(TPR(FPR^-1)(f)df) where FPR is false positive rate and TPR is tru
 
 ### Submission Format
 You are required to submit a .csv file with following rules in mind.
-* Name your csv file as `<team_name>_<submission_number.csv>`. So for team named VL2G making their first submission, file would be named `VL2G_1.csv`
+* Name your csv file as `<team_name>_<two digit submission_number.csv>`. So for team named VL2G making their first submission, file would be named `VL2G_01.csv`
 * The csv file must have 4 columns `img1_name`, `img2_name`, `label` and `proba`. You may generate your submission file by creating a copy of `val.csv` that is provided to you so that ordering of the pairs is same as in original `val.csv`
 ![WVSC_1](./assets/WVSC_1.png)
 
