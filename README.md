@@ -47,7 +47,7 @@ python3 evaluate --label <path/to/ground/truth/csv/file> --pred <path/to/predict
 ![eval](./assets/eval.gif)
 
 
-Leader-board will be generated using [leader_board.py](./leader_board.py)
+Leader-board will be generated using [leader_board.py](./leader_board.py). This is just for transparency and you may not use this script at your end.
 
 ```
 python3 leader_board.py --gt <path/to/ground/truth/csv/file> --path <path/to/submission/folder>
